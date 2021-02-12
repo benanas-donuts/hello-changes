@@ -42,6 +42,8 @@ pipelines:
         configuration:
           inputResources:
             - name: a_hello_changes_base
+          runtime:
+            type: host
         execution:
           onStart:
             - curl ifconfig.me
@@ -57,6 +59,8 @@ pipelines:
             - name: a_hello_changes_version
           inputSteps:
             - name: runA
+          runtime:
+            type: host
         execution:
           onStart:
             - pushd $res_a_hello_changes_version_resourcePath
