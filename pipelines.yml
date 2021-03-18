@@ -45,6 +45,7 @@ pipelines:
         execution:
           onStart:
             - curl ifconfig.me
+            - docker image ls 
             - cd $res_hello_changes_a_git_repo_resourcePath
             - ls
             - echo $jfrogBuildNumber
