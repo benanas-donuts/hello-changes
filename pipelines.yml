@@ -63,3 +63,11 @@ pipelines:
             - ls
             - cat a/version/bam.sh
             - popd
+      - name: shouldFail
+        type: Bash
+        configuration:
+          inputResources:
+            - name: a_hello_changes_base
+        execution:
+          onStart:
+            - docker --version
