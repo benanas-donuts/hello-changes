@@ -28,6 +28,14 @@ resources:
         include: \bb\/version\/[A-Za-z/\.]+\b
 
 pipelines:
+  - name: docker_build
+    type: DockerBuild
+    configuration:
+      dockerFileLocation: "./d"
+      dockerFileName: "Dockerfile"
+      dockerImageName: "myalpine"
+      dockerImageTag: latest
+
   - name: hello_changes
     configuration:
       environmentVariables:
