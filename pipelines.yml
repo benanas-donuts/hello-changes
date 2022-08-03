@@ -28,6 +28,14 @@ resources:
         include: \bb\/version\/[A-Za-z/\.]+\b
 
 pipelines:
+  - name: docker_build
+    type: DockerBuild
+    configuration:
+      dockerFileLocation: "./d"
+      dockerFileName: "Dockerfile"
+      dockerImageName: "myalpine"
+      dockerImageTag: latest
+
   - name: hello_changes
     configuration:
       environmentVariables:
@@ -64,3 +72,11 @@ pipelines:
             - ls
             - cat a/version/bam.sh
             - popd
+      - name: shouldFail
+        type: Bash
+        configuration:
+          inputResources:
+            - name: a_hello_changes_base
+        execution:
+          onStart:
+            - docker --version
