@@ -77,7 +77,7 @@ pipelines:
         type: DockerBuild
         configuration:
           inputResources:
-            - name: stein321Github
+            - name: a_hello_changes_base
           dockerFileLocation: "./d"
           dockerFileName: "Dockerfile"
           dockerImageName: "myalpine"
