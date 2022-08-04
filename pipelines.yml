@@ -72,10 +72,10 @@ pipelines:
         execution:
           onStart:
             - docker --version
-    - name: docker_build
-      type: DockerBuild
-      configuration:
-        dockerFileLocation: "./d"
-        dockerFileName: "Dockerfile"
-        dockerImageName: "myalpine"
-        dockerImageTag: latest
+      - name: docker_build
+        type: DockerBuild
+        configuration:
+          dockerFileLocation: "./d"
+          dockerFileName: "Dockerfile"
+          dockerImageName: "myalpine"
+          dockerImageTag: latest
