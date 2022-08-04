@@ -72,9 +72,12 @@ pipelines:
         execution:
           onStart:
             - docker --version
+
       - name: docker_build
         type: DockerBuild
         configuration:
+          inputResources:
+            - name: stein321Github
           dockerFileLocation: "./d"
           dockerFileName: "Dockerfile"
           dockerImageName: "myalpine"
