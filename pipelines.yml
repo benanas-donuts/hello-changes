@@ -49,6 +49,8 @@ pipelines:
             - cd $res_hello_changes_a_git_repo_resourcePath
             - ls
             - echo $jfrogBuildNumber
+            - echo "boooom" > text.txt
+            - add_run_files text.txt test_runs
       - name: runB
         type: Bash
         configuration:
@@ -64,6 +66,8 @@ pipelines:
             - ls
             - cat a/version/bam.sh
             - popd
+            - restore_run_files test_runs text.txt
+            - cat text.txt
       - name: cli_check
         type: Bash
         configuration:
